@@ -235,9 +235,8 @@ class DiscordWebSocket(websockets.client.WebSocketClientProtocol):
                     '$referrer': '',
                     '$referring_domain': ''
                 },
-                'compress': False,
+                'compress': True,
                 'large_threshold': 250,
-		'shard': [0, 2]
             }
         }
 
