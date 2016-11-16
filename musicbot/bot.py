@@ -2878,9 +2878,6 @@ class MusicBot(discord.Client):
             return Response("Fuck off")
 
     async def cmd_defcon(self, author, channel, user_mentions):
-        author = ctx.message.author
-        channel = ctx.message.channel
-        message = ctx.message
         for role in author.roles:
             try:
                 if perms.administrator or perms.manage_server or perms.manage.messages:
@@ -2891,11 +2888,33 @@ class MusicBot(discord.Client):
                 return Response("Critical Error in defcon runtime, type /bug")
             def is_user(message, author, m):
                 for user in user_mentions:
-                    if m == ctx.message or message.author == user:
+                    if m == message or message.author == user:
                         return True
                     else:
                         return False
-            await self.purge_from(channel, limit=100, check=is_user)
+            await self.purge_from(channel, limit=, check=is_user)
+    
+    async def cmd_purge(self, author, channel, message):
+        for role in author.roles:
+            try:
+                if perms.administrator or perms.manage_server or perms.manage.messages:
+                    print("okai")
+                else:
+                    return Response("You dont have permission to do that")
+            except:
+                return Response("**Critical Error** in runtime, type /bug")
+        message = message.content.strip() 
+        message = message.lower() 
+        message = message.replace("messages","")
+        message = message.replace(" ","")
+        try:
+            num = int(message)
+        except:
+            return Response("Unable to convert message into a number")
+        try:
+            await self.purge_from(channel, limit=num)
+        except:
+            return Response("I can't do it, did you change my permissions?")
 
     async def cmd_donate(self, author):
         await self.safe_send_message(author, "Thanks for considering donating to this project")
@@ -2998,7 +3017,7 @@ class MusicBot(discord.Client):
             return Response("Unable to fetch CPU usage")
         stdout, stderr = await process.communicate()
         usage = stdout.decode().strip()
-        usage = "```python \n" + usage + "```"
+        usage = "```py \n" + usage + "```"
         return Response(usage)
                     
     async def cmd_info(self, channel, server, message):
