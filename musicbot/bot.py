@@ -2892,7 +2892,7 @@ class MusicBot(discord.Client):
                         return True
                     else:
                         return False
-            await self.purge_from(channel, limit=, check=is_user)
+            await self.purge_from(channel, limit=100, check=is_user)
     
     async def cmd_purge(self, author, channel, message):
         for role in author.roles:
