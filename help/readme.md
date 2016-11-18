@@ -46,7 +46,7 @@ The class MusicBot is a subclass of discord.Client so you should use self when u
 Most functions are a coroutine, so you should insert the await keyword before using it
 The following utility functions can be used in the MusicBot class (bot.py), which handle and deal with exceptions properly.
 
-```
+```python
 safe_send_message (in substitute of discord.py's send_message)
 safe_edit_message (in substitute of discord.py's edit_message)
 safe_print (in substitute of print - handles Unicode issues)
