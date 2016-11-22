@@ -1874,7 +1874,7 @@ class MusicBot(discord.Client):
 
         old_volume = int(player.volume * 100)
 
-        if 0 < new_volume <= 100:
+        if -1 < new_volume <= 100:
             player.volume = new_volume / 100.0
             if new_volume == 0:
                 return Response(":mute:")
