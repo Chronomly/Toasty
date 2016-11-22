@@ -1831,8 +1831,7 @@ class MusicBot(discord.Client):
             return Response(":track_next:")
         reply=True
         delete_after=20
-
-        else:
+        if skips_remaining >= 0:
             # TODO: When a song gets skipped, delete the old x needed to skip messages
             return Response(
                 'You want to skip **{}**.'
