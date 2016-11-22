@@ -1876,11 +1876,10 @@ class MusicBot(discord.Client):
 
         if 0 < new_volume <= 100:
             player.volume = new_volume / 100.0
-        if new_volume == 0:
-            return Response(":mute:")
-        else:
-            return Response('volume changed... from %d to %d' % (old_volume, new_volume), reply=True, delete_after=20)
-
+            if new_volume == 0:
+                return Response(":mute:")
+            else:
+                return Response('volume changed... from %d to %d' % (old_volume, new_volume), reply=True, delete_after=20)
         else:
             if relative:
                 raise exceptions.CommandError(
