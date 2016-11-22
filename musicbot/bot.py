@@ -1828,10 +1828,9 @@ class MusicBot(discord.Client):
 
         if skips_remaining <= 0:
             player.skip()  # check autopause stuff here
-            return Response(":track_next:"),
-                reply=True,
-                delete_after=20
-            )
+            return Response(":track_next:")
+        reply=True,
+        delete_after=20
 
         else:
             # TODO: When a song gets skipped, delete the old x needed to skip messages
