@@ -1829,7 +1829,7 @@ class MusicBot(discord.Client):
         if skips_remaining <= 0:
             player.skip()  # check autopause stuff here
             return Response(":track_next:")
-        reply=True,
+        reply=True
         delete_after=20
 
         else:
