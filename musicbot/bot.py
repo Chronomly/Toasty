@@ -2424,8 +2424,8 @@ class MusicBot(discord.Client):
         message = message.content.strip()
         message = message.lower()
         message = message.split(",")
-        n1 = message[1]
-        n2 = message[2]
+        n1 = message[0]
+        n2 = message[1]
         n1 = poke.convert(n1)
         n2 = poke.convert(n2)
         url = poke.create(n1,n2)
