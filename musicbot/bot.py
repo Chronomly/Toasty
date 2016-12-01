@@ -2643,7 +2643,7 @@ class MusicBot(discord.Client):
 
     async def cmd_update(self, channel, author):
         await self.safe_send_message(channel, "Better start coding then, hold on a sec :computer:")
-        os.system("git pull origin master")
+        os.system("git pull origin dev")
         servercount = str(len(self.servers))
         message = "update downloaded, notifying " + servercount + " servers"
         await self.send_message(channel, message)
@@ -2712,7 +2712,7 @@ class MusicBot(discord.Client):
     async def cmd_silentupdate(self, channel, author):
         if author.id == "174918559539920897":
             await self.safe_send_message(channel, "Better start coding then, hold on a sec :computer:")
-            os.system("git pull origin master")
+            os.system("git pull origin dev")
             await self.disconnect_all_voice_clients()
             raise exceptions.TerminateSignal
         else:
@@ -3065,12 +3065,16 @@ class MusicBot(discord.Client):
         except:
             uptime = False
             pass
+        activeplayers = sum(1 for p in self.players.values() if p.is_playing)
+        activeplayers = str(activeplayers)
+        p = "This shard is currently playing music in " + activeplayers + " servers"
         print("commands complete, sending messages")
         infomsg = "Type /donate to help run the bot\n"
         infomsg += "Logo created by rebelnightmare#6126 : http://fireclaw316.deviantart.com\n"
         infomsg += file_count
         infomsg += file_size
         infomsg += servercount
+        infomsg += p
         infomsg += num
         if uptime == False:
             pass
