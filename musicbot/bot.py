@@ -2744,6 +2744,7 @@ class MusicBot(discord.Client):
             return Response("You arent my developer")
 
     async def cmd_bug(self,channel,server,author):
+        return Response("/bug is broken because of sharding, my dev is trying to find the fix, in the mean time type /join to join my server, and mention tech support and tell them what issue you're having")
         author = author.id
         print (author)
         try:
