@@ -3124,21 +3124,27 @@ class MusicBot(discord.Client):
             
         Adds your urls from a pastebin paste. It will automatically skip any broken urls in your paste
         """
+        if link == None:
+            return Response("Please give me a pastebin url like this: **/add http://pastebin.com/5upGeSzX**")
         await self.safe_send_message(channel, "**IM PROCCESSING YOUR LINK HANG ON FAM**")
         message = message.content.strip() 
         message = message[5:]      
         link = musicbot.misc.patebin(message)
-        if link == None:
-            return Response("Please give me a pastebin url like this: **/add http://pastebin.com/5upGeSzX**")
         link = link.splitlines()
+        count = int(0)
         for line in link:
             song_url = line
             print (line)
             info = await self.downloader.safe_extract_info(player.playlist.loop, song_url, download=False, process=False)
             try:
                 await player.playlist.add_entry(song_url, channel=None, author=None)
+                count = count + 1
             except exceptions.ExtractionError as e:
-                print("Error adding song from autoplaylist:", e)        
+                print("Error adding song from autoplaylist:", e) 
+                msg = "Failed to add" + line
+                await self.safe_send_message(channel,msg)
+        msg = "Added " + count + " songs"
+        return Response(msg)
         
     async def cmd_electronic(self, channel, player):
         size = int(20)
