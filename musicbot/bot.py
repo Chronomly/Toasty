@@ -701,24 +701,28 @@ class MusicBot(discord.Client):
 
     async def update_now_playing_status(self, entry=None, is_paused=False):
         game = None
-
-        if self.user.bot:
-            activeplayers = sum(1 for p in self.players.values() if p.is_playing)
-            if activeplayers > 1:
-                game = "with 4/4 shards"
-            elif activeplayers == 1:
-                player = discord.utils.get(self.players.values(), is_playing=True)
-                entry = player.current_entry
-
-        if entry:
-            prefix = u'\u275A\u275A ' if is_paused else ''
-
-            name = u'{}{}'.format(prefix, entry.title)[:128]
-            game = discord.Game(name=name)
+        game = """music somewhere
+        with code
+        something, idk
+        some really messed up stuff
+        with /help
+        with commands
+        porn
+        VIDEO GAMES
+        stuff
+        with too many servers
+        with life of my dev
+        dicks
+        Civ 5
+        Civ 6
+        Besiege
+        with code
+        Mass Effect
+        bangin tunes"""
+        text = game.splitlines()
+        game = (game[random.randint(0,(len(text)))])
         await self.change_presence(game = game)
-
                 
-
     async def update_now_playing_message(self, server, message, *, channel=None):
         lnp = self.server_specific_data[server]['last_np_msg']
         m = None
