@@ -3214,8 +3214,8 @@ class MusicBot(discord.Client):
             return
 
         if message.channel.is_private:
-            if not (message.author.id == self.config.owner_id and command == 'joinserver'):
-                await self.send_message(message.channel, 'You cannot use this bot in private messages.')
+            if not (message.author.id == self.config.owner_id and command == 'joinserver' or 'savage' or 'shitpost' or 'urban' or 'google' or 'lmgtfy' or 'cat' or 'feature' or 'supported' or 'gif' or 'ping' or 'vicky' or 'flip' or '8ball' or 'toast' or 'donate' or 'join' or 'id'):
+                await self.send_message(message.channel, 'https://goo.gl/rdbPKI')
                 return
 
         if message.author.id in self.blacklist and message.author.id != self.config.owner_id:
