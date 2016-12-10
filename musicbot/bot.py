@@ -855,7 +855,8 @@ class MusicBot(discord.Client):
         msg = None
         try:
             em = discord.Embed(title='Toasty', description=content, colour=16711829)
-            em.set_thumbnail("https://goo.gl/ECzBcT")
+            url = "https://goo.gl/ECzBcT"
+            em.set_thumbnail(url)
             msg = await self.send_message(dest, embed=em)
         except discord.Forbidden:
             if not quiet:
