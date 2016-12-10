@@ -854,8 +854,8 @@ class MusicBot(discord.Client):
     async def safe_send_message(self, dest, content, *, tts=False, expire_in=0, also_delete=None, quiet=False):
         msg = None
         try:
-            em = discord.Embed(title='Toasty', description=content, colour=random.randint(0,99999999))
-            em.set_author(name='', icon_url="https://cdn.discordapp.com/attachments/217237051140079617/257274119446462464/Toasty_normal..png")
+            em = discord.Embed(title='', description=content, colour=random.randint(0,99999999))
+            em.set_author(name='Toasty', icon_url="https://cdn.discordapp.com/attachments/217237051140079617/257274119446462464/Toasty_normal..png")
             msg = await self.send_message(dest, embed=em)
         except discord.Forbidden:
             if not quiet:
