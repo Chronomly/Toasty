@@ -854,8 +854,8 @@ class MusicBot(discord.Client):
     async def safe_send_message(self, dest, content, *, tts=False, expire_in=0, also_delete=None, quiet=False):
         msg = None
         try:
-            em = discord.Embed(title='Toasty', description=content, colour=0xDEADBF)
-            em.set_author(name='Toasty', icon_url= self.user.default_avatar_url)
+            em = discord.Embed(title='Toasty', description=content, colour="FF0095")
+            em.set_thumbnail = "https://cdn.discordapp.com/attachments/217237051140079617/257274119446462464/Toasty_normal..png"
             msg = await self.send_message(dest, embed=em)
         except discord.Forbidden:
             if not quiet:
@@ -2210,7 +2210,6 @@ class MusicBot(discord.Client):
     async def cmd_breakpoint(self, message):
         log.critical("Activating debug breakpoint")
         return
-
     @owner_only
     async def cmd_objgraph(self, channel, func='most_common_types()'):
         import objgraph
