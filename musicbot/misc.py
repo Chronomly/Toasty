@@ -19,6 +19,7 @@ def helpmusic():
     helpmsg1 += "/retro           <--Creates a playlist of retro songs\n"
     helpmsg1 += "/metal           <--Creates a playlist of metal songs\n"
     helpmsg1 += "/add             <--Create a playlist made from urls on your pastebin\n"
+    helpmsg1 += "/loop [number]   <--Loop a set song a set amount of times\n"
     helpmsg1 += "```"
     return helpmsg1
     
@@ -404,6 +405,11 @@ The only good thing to pull itself out of your mom's vagina was your dad's dick.
 I doubt that you could drown: fat floats.
 Whats the difference between breathing in paint and talking to you? Breathing in paint kills less brain cells
 Youre like meat at a butcher shop: you could use a good hanging
+You clearly have not been burdened by an overabundance of education
+You will be utterly forgotten
+“Bless your heart.” Southern code for “you’re a fucking retard.”
+What doesn’t kill you…disappoints me.
+The best part of you ran down your mother’s legs
 """
     text = insults.splitlines()
     message = (text[random.randint(0,(len(text))-1)])
@@ -418,7 +424,8 @@ def uptime():
 
 def update():
     update = ""
-    update += "There are now 2 Toastys, each one takes half the load\n"
-    update += "Toasty knows how long her server has been running for\n"
+    update += "Updated /info\n"
+    update += "New message style\n"
+    update += "More preperations for 2.0\n"
     return update
 
