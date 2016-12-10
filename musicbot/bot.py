@@ -856,7 +856,7 @@ class MusicBot(discord.Client):
         try:
             em = discord.Embed(title='Toasty', description=content, colour=0xDEADBF)
             em.set_author(name='Toasty', icon_url=client.user.default_avatar_url)
-            msg = await self.send_message(dest, embed=ems)
+            msg = await self.send_message(dest, embed=em)
         except discord.Forbidden:
             if not quiet:
                 await self.safe_send_message((discord.Object(id='228835542417014784')),"Warning: Cannot send message to %s, no permission" % dest.name)
